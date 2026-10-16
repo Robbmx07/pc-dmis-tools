@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>3-2-1 alignment in PC-DMIS, step by step</title><meta name="description" content="Level, rotate, origin: how to build a datum alignment in the PC-DMIS Alignment dialog that locks all six degrees of freedom.">
+<link rel="canonical" href="https://robbmx07.github.io/gumroad-Latest/articles/3-2-1-alignment-in-pc-dmis.html">
+<meta property="og:title" content="3-2-1 alignment in PC-DMIS, step by step"><meta property="og:description" content="Level, rotate, origin: how to build a datum alignment in the PC-DMIS Alignment dialog that locks all six degrees of freedom.">
+<meta property="og:type" content="website"><meta property="og:url" content="https://robbmx07.github.io/gumroad-Latest/articles/3-2-1-alignment-in-pc-dmis.html"><meta property="og:image" content="https://robbmx07.github.io/gumroad-Latest/img/alignment-reference-cover.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="stylesheet" href="../assets/fonts.css"><link rel="stylesheet" href="../assets/site.css"><script data-goatcounter="https://robbmxstore.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
+</head><body>
+<nav class="nav"><a class="brand" href="../index.html">PC-DMIS <span>Field Kit</span></a><span class="sp"></span>
+<a class="l" href="../index.html#products">Products</a><a class="l" href="../tools/bonus-tolerance-calculator.html">Free tools</a><a class="l" href="../index.html#articles">Articles</a><a class="l" href="../index.html#about">About</a></nav>
+<main class="wrap"><section><article><h1>3-2-1 alignment in PC-DMIS, step by step</h1>
+<p>An alignment's job is to lock all six degrees of freedom, three translations and three rotations, so every number on the report means what you think it means. A program can report everything in tolerance and still be wrong if the alignment leaves something free.</p>
+<h2>The rule: level, rotate, then origin</h2><p>Level fixes which way is up. Rotate fixes the spin about that axis. Origin fixes the XYZ zero. Do them in that order. Translating before the part is fully leveled and rotated moves your origin out from under you.</p>
+<h2>Build it in the Alignment dialog</h2><p>PC-DMIS rejects multi-line alignment text pasted into the Edit window, so build it with the dialog:</p>
+<ol><li>Open the Alignment dialog with <b>Ctrl+Alt+A</b> (or Insert | Alignment | New).</li><li>Select the datum A plane and click <b>Level</b> (Z+).</li><li>Select the datum B line and click <b>Rotate</b> (X+ about Z+).</li><li>Select the datum C feature, check X and Y, and click <b>Origin</b>. Then select datum A, check Z, and click <b>Origin</b>.</li><li>Name it after the datum frame, for example <code>ALN_ABC</code>, and click OK.</li></ol>
+<p>When you're done, the Edit window shows <code>ALIGNMENT/LEVEL</code>, <code>ALIGNMENT/ROTATE,XPLUS,TO,…,ABOUT,ZPLUS</code> and three <code>ALIGNMENT/TRANS</code> lines between <code>ALIGNMENT/START</code> and <code>ALIGNMENT/END</code>.</p>
+<h2>Pitfalls that quietly corrupt results</h2><ul><li>Leaving a degree of freedom unlocked in the alignment you measure from.</li><li>Chaining alignments off each other instead of always recalling from the start.</li><li>Using variables inside alignment commands.</li><li>Naming alignments A1, A2. Name them after the datum frame so a reviewer can trace them to the print.</li></ul>
+<div class="cta">The <a href="../products/alignment-reference.html">Alignment Quick Reference</a> ($10) covers iterative alignment rules and point counts, best-fit (RPS) alignments and multiple datum reference frames. The <a href="../products/field-kit.html">Field Kit</a> adds the read point alignment walkthrough for getting a new part into DCC.</div>
+</article></section></main>
+<footer class="foot"><div class="wrap"><p>Found an error in a product? Email RCSutton001@gmail.com. Fixes go to every buyer as a free update.</p>
+<p>© 2026 Robert Sutton. PC-DMIS is a trademark of Hexagon AB. These products are independent and not affiliated with or endorsed by Hexagon.</p>
+<p>Checkout and delivery by Gumroad. 30-day refunds, no questions asked.</p></div></footer>
+</body></html>

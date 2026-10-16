@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Position bonus tolerance calculator (MMC / LMC) · free</title><meta name="description" content="Free position bonus tolerance calculator for MMC and LMC holes and pins: size limits, bonus, total position tolerance and pass/fail.">
+<link rel="canonical" href="https://robbmx07.github.io/gumroad-Latest/tools/bonus-tolerance-calculator.html">
+<meta property="og:title" content="Position bonus tolerance calculator (MMC / LMC) · free"><meta property="og:description" content="Free position bonus tolerance calculator for MMC and LMC holes and pins: size limits, bonus, total position tolerance and pass/fail.">
+<meta property="og:type" content="website"><meta property="og:url" content="https://robbmx07.github.io/gumroad-Latest/tools/bonus-tolerance-calculator.html"><meta property="og:image" content="https://robbmx07.github.io/gumroad-Latest/img/field-kit-cover.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="stylesheet" href="../assets/fonts.css"><link rel="stylesheet" href="../assets/site.css"><script data-goatcounter="https://robbmxstore.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
+</head><body>
+<nav class="nav"><a class="brand" href="../index.html">PC-DMIS <span>Field Kit</span></a><span class="sp"></span>
+<a class="l" href="../index.html#products">Products</a><a class="l" href="../tools/bonus-tolerance-calculator.html">Free tools</a><a class="l" href="../index.html#articles">Articles</a><a class="l" href="../index.html#about">About</a></nav>
+<main class="wrap"><section><h1>Position bonus tolerance calculator</h1><p style="max-width:70ch;color:var(--muted)">Enter the feature's size tolerance and measured size to get the bonus and the total position tolerance at MMC or LMC. Bonus only applies when the actual size is within its own limits.</p>
+<div class="calc"><div class="row"><div><label for="t">Feature</label><select id="t"><option value="int">Hole (internal)</option><option value="ext">Pin / boss (external)</option></select></div><div><label for="m">Modifier</label><select id="m"><option>MMC</option><option>LMC</option></select></div><div><label for="pos">Position tolerance ⌀</label><input id="pos" type="number" step="any" value="0.080"></div></div>
+<div class="row"><div><label for="nom">Nominal size</label><input id="nom" type="number" step="any" value="0.675"></div><div><label for="pl">+ tolerance</label><input id="pl" type="number" step="any" value="0.025"></div><div><label for="mi">− tolerance</label><input id="mi" type="number" step="any" value="0.025"></div></div>
+<div class="row"><div><label for="act">Actual size</label><input id="act" type="number" step="any" value="0.661"></div><div><label for="dev">Measured position ⌀ (optional)</label><input id="dev" type="number" step="any" value=""></div></div>
+<div class="out" id="out"></div><div class="msg" id="msg"></div></div>
+<div class="cta"><b>From the PC-DMIS Field Kit.</b> The kit has this calculator plus 8 more (sampling planner, stylus fit, pallet loop builder and others) and the GD&amp;T page that explains when bonus applies. <a href="../products/field-kit.html">See the Field Kit</a>.</div></section></main>
+<script>
+(function(){function v(id){var x=parseFloat(document.getElementById(id).value);return isFinite(x)?x:NaN}
+function f(x){return isFinite(x)?x.toFixed(4).replace(/0+$/,'').replace(/\.$/,''):'—'}
+function run(){var t=document.getElementById('t').value,m=document.getElementById('m').value,nom=v('nom'),pl=Math.abs(v('pl')),mi=Math.abs(v('mi')),pos=v('pos'),act=v('act'),dev=v('dev'),o=document.getElementById('out'),g=document.getElementById('msg');
+if([nom,pl,mi,pos,act].some(isNaN)){o.innerHTML='';g.textContent='Fill in the size, tolerances, position tolerance and actual size.';return}
+var lo=nom-mi,hi=nom+pl,ref=(m==='MMC')===(t==='int')?lo:hi,ok=act>=lo-1e-9&&act<=hi+1e-9,b=ok?Math.abs(act-ref):NaN,tot=ok?pos+b:NaN;
+var h='<div><span>Size limits</span><b>'+f(lo)+' – '+f(hi)+'</b></div><div><span>'+m+' limit</span><b>'+f(ref)+'</b></div><div><span>Bonus</span><b>'+(ok?f(b):'—')+'</b></div><div><span>Total position tol</span><b>'+(ok?'⌀'+f(tot):'—')+'</b></div>';
+if(!isNaN(dev)&&ok)h+='<div><span>Measured ⌀'+f(dev)+'</span><b class="'+(dev<=tot+1e-9?'pass">PASS':'fail">FAIL')+'</b></div>';
+o.innerHTML=h;g.innerHTML=ok?'Bonus = |actual − '+m+' limit| = |'+f(act)+' − '+f(ref)+'| = '+f(b)+'.':'<span class="fail">Actual size is outside its limits.</span> The feature rejects on size, so no bonus applies.'}
+document.querySelectorAll('.calc input,.calc select').forEach(function(e){e.addEventListener('input',run);e.addEventListener('change',run)});run()})();
+</script>
+<footer class="foot"><div class="wrap"><p>Found an error in a product? Email RCSutton001@gmail.com. Fixes go to every buyer as a free update.</p>
+<p>© 2026 Robert Sutton. PC-DMIS is a trademark of Hexagon AB. These products are independent and not affiliated with or endorsed by Hexagon.</p>
+<p>Checkout and delivery by Gumroad. 30-day refunds, no questions asked.</p></div></footer>
+</body></html>

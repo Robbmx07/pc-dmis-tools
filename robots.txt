@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://robbmx07.github.io/gumroad-Latest/sitemap.xml

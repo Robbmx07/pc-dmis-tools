@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>IJK vector normalizer for PC-DMIS · free</title><meta name="description" content="Free IJK unit vector calculator: normalize a direction, flip it, and see the angle to each axis before you type it into PC-DMIS.">
+<link rel="canonical" href="https://robbmx07.github.io/gumroad-Latest/tools/ijk-vector-normalizer.html">
+<meta property="og:title" content="IJK vector normalizer for PC-DMIS · free"><meta property="og:description" content="Free IJK unit vector calculator: normalize a direction, flip it, and see the angle to each axis before you type it into PC-DMIS.">
+<meta property="og:type" content="website"><meta property="og:url" content="https://robbmx07.github.io/gumroad-Latest/tools/ijk-vector-normalizer.html"><meta property="og:image" content="https://robbmx07.github.io/gumroad-Latest/img/field-kit-cover.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="stylesheet" href="../assets/fonts.css"><link rel="stylesheet" href="../assets/site.css"><script data-goatcounter="https://robbmxstore.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
+</head><body>
+<nav class="nav"><a class="brand" href="../index.html">PC-DMIS <span>Field Kit</span></a><span class="sp"></span>
+<a class="l" href="../index.html#products">Products</a><a class="l" href="../tools/bonus-tolerance-calculator.html">Free tools</a><a class="l" href="../index.html#articles">Articles</a><a class="l" href="../index.html#about">About</a></nav>
+<main class="wrap"><section><h1>IJK vector normalizer</h1><p style="max-width:70ch;color:var(--muted)">Type any direction and get the unit vector PC-DMIS expects, its flipped version, and the angle to each axis. PC-DMIS re-normalizes what you type, but checking it here catches sign and typo mistakes first.</p>
+<div class="calc"><div class="row"><div><label for="i">I</label><input id="i" type="number" step="any" value="0.05"></div><div><label for="j">J</label><input id="j" type="number" step="any" value="0.94"></div><div><label for="k">K</label><input id="k" type="number" step="any" value="0.34"></div></div>
+<div class="out" id="out"></div><div class="msg" id="msg"></div></div>
+<div class="cta"><b>From the PC-DMIS Field Kit.</b> The Vector Directions section explains surface normals and the part-to-probe rule with diagrams. <a href="../products/vector-directions.html">Vector Directions sheet ($5)</a> or the <a href="../products/field-kit.html">full Field Kit</a>.</div></section></main>
+<script>
+(function(){function v(id){var x=parseFloat(document.getElementById(id).value);return isFinite(x)?x:NaN}
+function f(x){return x.toFixed(6)}
+function run(){var a=[v('i'),v('j'),v('k')],o=document.getElementById('out'),g=document.getElementById('msg');
+if(a.some(isNaN)){o.innerHTML='';g.textContent='Enter numbers for I, J and K.';return}
+var L=Math.sqrt(a[0]*a[0]+a[1]*a[1]+a[2]*a[2]);if(L<1e-12){o.innerHTML='';g.textContent='A zero vector has no direction. At least one value must be non-zero.';return}
+var u=a.map(function(x){return x/L}),ang=u.map(function(x){return (Math.acos(Math.max(-1,Math.min(1,x)))*180/Math.PI).toFixed(2)+'°'});
+o.innerHTML='<div><span>Unit vector</span><b>'+u.map(f).join(', ')+'</b></div><div><span>Input length</span><b>'+L.toFixed(6)+'</b></div><div><span>Flipped</span><b>'+u.map(function(x){return f(-x||0)}).join(', ')+'</b></div><div><span>Angle to X / Y / Z</span><b>'+ang.join(' / ')+'</b></div>';
+g.textContent='';}
+document.querySelectorAll('.calc input').forEach(function(e){e.addEventListener('input',run)});run()})();
+</script>
+<footer class="foot"><div class="wrap"><p>Found an error in a product? Email RCSutton001@gmail.com. Fixes go to every buyer as a free update.</p>
+<p>© 2026 Robert Sutton. PC-DMIS is a trademark of Hexagon AB. These products are independent and not affiliated with or endorsed by Hexagon.</p>
+<p>Checkout and delivery by Gumroad. 30-day refunds, no questions asked.</p></div></footer>
+</body></html>

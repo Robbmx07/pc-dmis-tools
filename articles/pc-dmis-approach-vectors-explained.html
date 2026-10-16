@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PC-DMIS approach vectors explained (IJK without the headache)</title><meta name="description" content="What I, J and K mean in PC-DMIS, why a hit vector is a surface normal, and how to get the sign right every time.">
+<link rel="canonical" href="https://robbmx07.github.io/gumroad-Latest/articles/pc-dmis-approach-vectors-explained.html">
+<meta property="og:title" content="PC-DMIS approach vectors explained (IJK without the headache)"><meta property="og:description" content="What I, J and K mean in PC-DMIS, why a hit vector is a surface normal, and how to get the sign right every time.">
+<meta property="og:type" content="website"><meta property="og:url" content="https://robbmx07.github.io/gumroad-Latest/articles/pc-dmis-approach-vectors-explained.html"><meta property="og:image" content="https://robbmx07.github.io/gumroad-Latest/img/vector-directions-cover.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="stylesheet" href="../assets/fonts.css"><link rel="stylesheet" href="../assets/site.css"><script data-goatcounter="https://robbmxstore.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
+</head><body>
+<nav class="nav"><a class="brand" href="../index.html">PC-DMIS <span>Field Kit</span></a><span class="sp"></span>
+<a class="l" href="../index.html#products">Products</a><a class="l" href="../tools/bonus-tolerance-calculator.html">Free tools</a><a class="l" href="../index.html#articles">Articles</a><a class="l" href="../index.html#about">About</a></nav>
+<main class="wrap"><section><article><h1>PC-DMIS approach vectors explained (IJK without the headache)</h1>
+<p>More CMM programs go wrong from a flipped vector than from almost anything else. The math is simple. The confusion is almost always about what the vector is relative to.</p>
+<h2>What I, J and K are</h2><p>I, J and K are the vector's components along X, Y and Z. Each one is a direction cosine: I is the cosine of the angle between the vector and the X axis, J to Y, and K to Z. Together they always form a unit vector, with a length of 1. IJK belongs to the fixed 3D coordinate system, not to the 2D workplane you happen to be in.</p>
+<h2>The vector is a surface normal</h2><p>For planes, circles and cylinders, IJK is the direction perpendicular to the surface. It is not a description of tilt. When a plane tilts, its normal leans with it and stays a unit vector.</p>
+<h2>Part to probe: getting the sign right</h2><p>The vector points from the surface toward the side the probe approached from, which is the opposite of the probe's travel. Probe moving down (−Z) onto a top face gives a hit vector of <code>0,0,1</code>.</p>
+<table><thead><tr><th>Surface faces</th><th>Probe approaches from</th><th>Vector</th></tr></thead><tbody>
+<tr><td>Up</td><td>Above (moving −Z)</td><td><code>0, 0, 1</code></td></tr><tr><td>Down</td><td>Below (moving +Z)</td><td><code>0, 0, −1</code></td></tr>
+<tr><td>Toward +X</td><td>+X side (moving −X)</td><td><code>1, 0, 0</code></td></tr><tr><td>Toward −X</td><td>−X side (moving +X)</td><td><code>−1, 0, 0</code></td></tr></tbody></table>
+<h2>Two habits that prevent most vector problems</h2><p>For features that aren't square to an axis, don't hand-calculate direction cosines. Square the part up with a temporary alignment, build the feature with a simple ±1 vector, and let the alignment carry the real orientation. And to reverse a vector, use the dialog's <b>Flip Vector</b> button instead of typing a minus sign, so the magnitude stays correct.</p>
+<p>If a feature that used to probe cleanly starts crashing or reporting backwards after a CAD import, suspect the model's normals: re-pick the correct face in Auto Feature mode before changing anything else.</p>
+<div class="cta"><b>Check a vector now</b> with the free <a href="../tools/ijk-vector-normalizer.html">IJK vector normalizer</a>. The <a href="../products/vector-directions.html">Vector Directions sheet</a> ($5) adds diagrams, the full cheat sheet and what the IJK angle box means for each feature type.</div>
+</article></section></main>
+<footer class="foot"><div class="wrap"><p>Found an error in a product? Email RCSutton001@gmail.com. Fixes go to every buyer as a free update.</p>
+<p>© 2026 Robert Sutton. PC-DMIS is a trademark of Hexagon AB. These products are independent and not affiliated with or endorsed by Hexagon.</p>
+<p>Checkout and delivery by Gumroad. 30-day refunds, no questions asked.</p></div></footer>
+</body></html>
