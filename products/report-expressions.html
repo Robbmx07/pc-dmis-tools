@@ -12,7 +12,7 @@
 <main class="wrap"><div class="prod"><div><img class="cover" src="../img/report-expressions-cover.png" alt="Report Expressions Card cover" width="1280" height="720">
 <h1 style="margin-top:22px">Report Expressions Card</h1><p style="font-size:1.1rem;color:var(--muted)">The report and label expressions you actually use, with :N rows and TOL coloring.</p>
 <h2>What's inside</h2><ul class="ticks"><li>Data fields</li><li>:N repeating rows</li><li>TOL / TOLF</li><li>Header data</li></ul><div class="cta"><b>Want the whole reference?</b> The <a href="field-kit.html">PC-DMIS Field Kit</a> includes this sheet and much more. Your receipt includes a $10-off code.</div>
-<h2>Preview</h2><div class="shots"><img src="../img/report-expressions-preview-1.png" alt="Report Expressions Card preview 1" loading="lazy" width="1280" height="720"><img src="../img/report-expressions-preview-2.png" alt="Report Expressions Card preview 2" loading="lazy" width="1280" height="720"></div>
+<h2>Preview</h2><div class="shots"><a class="zoom" href="../img/report-expressions-preview-1.png"><img src="../img/report-expressions-preview-1.png" alt="Report Expressions Card preview 1" loading="lazy" width="1280" height="720"></a><a class="zoom" href="../img/report-expressions-preview-2.png"><img src="../img/report-expressions-preview-2.png" alt="Report Expressions Card preview 2" loading="lazy" width="1280" height="720"></a></div>
 <h2>Questions</h2><dl class="faq"><dt>Does it install anything?</dt><dd>No. It&#x27;s a single HTML file that opens in Chrome, Edge or Firefox.</dd><dt>Will it work on a CMM PC with no internet?</dt><dd>Yes. Everything, including fonts, is inside the file.</dd><dt>Which PC-DMIS version is it for?</dt><dd>Written for PC-DMIS 2023.x and newer. Version differences are called out where they matter.</dd><dt>Can I paste the code into PC-DMIS?</dt><dd>PC-DMIS rejects pasted multi-line code, so every routine example comes with dialog build steps instead.</dd><dt>What if something is wrong?</dt><dd>Email RCSutton001@gmail.com. Fixes go to every buyer as a free update, and refunds are available for 30 days.</dd></dl></div>
 <aside class="buybox"><div class="p">$5</div><p style="margin:4px 0 14px;color:var(--muted)">One-time purchase. No subscription.</p>
 <a class="btn" style="width:100%;justify-content:center" href="https://robbmx.gumroad.com/l/report-expressions?ref=site">Buy now</a>
@@ -20,4 +20,10 @@
 <footer class="foot"><div class="wrap"><p>Found an error in a product? Email RCSutton001@gmail.com. Fixes go to every buyer as a free update.</p>
 <p>© 2026 Robert Sutton. PC-DMIS is a trademark of Hexagon AB. These products are independent and not affiliated with or endorsed by Hexagon.</p>
 <p>Checkout and delivery by Gumroad. 30-day refunds, no questions asked.</p></div></footer>
+<div class="lb" id="lb" hidden><span class="hint">Click the image for full size. Esc or click outside to close.</span><button class="x" type="button" aria-label="Close">Close ✕</button><img alt=""></div>
+<script>(function(){var lb=document.getElementById('lb');if(!lb)return;var im=lb.querySelector('img');
+function close(){lb.hidden=true;lb.classList.remove('full');im.src='';document.body.style.overflow=''}
+document.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('a.zoom');if(a){e.preventDefault();im.src=a.href;im.alt=(a.querySelector('img')||{}).alt||'';lb.hidden=false;document.body.style.overflow='hidden';lb.querySelector('.x').focus();return}
+if(!lb.hidden){if(e.target===im){lb.classList.toggle('full');e.stopPropagation();return}if(lb.contains(e.target))close()}});
+document.addEventListener('keydown',function(e){if(e.key==='Escape'&&!lb.hidden)close()});})();</script>
 </body></html>
